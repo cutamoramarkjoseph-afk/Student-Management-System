@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.studentmanagementsystem.Controller">
+    <top>
+        <VBox spacing="6" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="18" right="20" bottom="10" left="20" />
+            </padding>
+            <Label text="Student Information Tracker">
+                <font>
+                    <Font size="24" />
+                </font>
+            </Label>
+            <Label text="JavaFX + JDBC + PostgreSQL CRUD Application" />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" BorderPane.alignment="CENTER">
+
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <HBox spacing="30">
+
+                <!-- LEFT SIDE -->
+                <VBox spacing="12">
+
+                    <Label text="Student Information">
+                        <font>
+                            <Font size="18"/>
+                        </font>
+                    </Label>
+
+                    <GridPane hgap="10" vgap="12">
+
+                        <Label text="Name:"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="txtName"
+                                   promptText="Enter student name"
+                                   prefWidth="220"
+                                   GridPane.rowIndex="0"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Course:"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="txtCourse"
+                                   promptText="Enter course"
+                                   prefWidth="220"
+                                   GridPane.rowIndex="1"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Year Level:"
+                               GridPane.rowIndex="2"
+                               GridPane.columnIndex="0"/>
+
+                        <ChoiceBox fx:id="cbYear"
+                                   prefWidth="220"
+                                   GridPane.rowIndex="2"
+                                   GridPane.columnIndex="1"/>
+
+                    </GridPane>
+
+                </VBox>
+
+                <!-- RIGHT SIDE -->
+                <VBox spacing="15">
+
+                    <Label text="Actions">
+                        <font>
+                            <Font size="18"/>
+                        </font>
+                    </Label>
+
+                    <Button text="Add Student"
+                            prefWidth="140"
+                            onAction="#addStudent"/>
+
+                    <Button text="Update Record"
+                            prefWidth="140"
+                            onAction="#updateStudent"/>
+
+                    <Button text="Delete Record"
+                            prefWidth="140"
+                            onAction="#deleteStudent"/>
+
+                    <Button text="Clear Fields"
+                            prefWidth="140"
+                            onAction="#clearFields"/>
+
+                </VBox>
+
+            </HBox>
+
+            <Label text="Student Records">
+                <font>
+                    <Font size="18"/>
+                </font>
+            </Label>
+
+            <TableView fx:id="table" VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 text="Student ID"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="colName"
+                                 text="Full Name"
+                                 prefWidth="260"/>
+
+                    <TableColumn fx:id="colCourse"
+                                 text="Course"
+                                 prefWidth="220"/>
+
+                    <TableColumn fx:id="colYear"
+                                 text="Year Level"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+</BorderPane>

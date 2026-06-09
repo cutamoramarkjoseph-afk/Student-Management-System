@@ -1,0 +1,52 @@
+package com.example.studentmanagementsystem;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class Student {
+    private final IntegerProperty id;
+    private final StringProperty name;
+    private final StringProperty course;
+    private final StringProperty yearLevel;
+
+    public Student(int id, String name, String course, String yearLevel) {
+        this.id = new SimpleIntegerProperty(id);
+        this.name = new SimpleStringProperty(name);
+        this.course = new SimpleStringProperty(course);
+        this.yearLevel = new SimpleStringProperty(yearLevel);
+    }
+
+    public int getId() {
+        return id.get();
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public String getCourse() {
+        return course.get();
+    }
+
+    public String getYearLevel() {
+        return yearLevel.get();
+    }
+
+    public IntegerProperty idProperty() {
+        return id;
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public StringProperty courseProperty() {
+        return course;
+    }
+
+    public StringProperty yearLevelProperty() {
+        return yearLevel;
+    }
+}
